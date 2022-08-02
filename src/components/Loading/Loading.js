@@ -1,12 +1,6 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import Lottie from 'lottie-react-native';
 
-const Loading = () => {
-  return (
-    <View>
-      <Text>Loading</Text>
-    </View>
-  );
-};
-
-export default Loading;
+export default function Loading() {
+  return <Lottie source={require('../../assets/loading.json')} autoPlay loop />;
+}

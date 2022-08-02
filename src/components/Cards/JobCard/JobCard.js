@@ -1,7 +1,6 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableWithoutFeedback} from 'react-native';
 import React from 'react';
 import styles from './JobCard.style';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const JobCard = ({job, onSelect}) => {
   return (

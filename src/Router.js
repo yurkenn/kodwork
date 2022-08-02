@@ -1,6 +1,4 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import Config from 'react-native-config';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Jobs from './pages/Jobs';
@@ -20,7 +18,15 @@ const Router = () => {
             headerTintColor: '#FF4D4D',
           }}
         />
-        <Stack.Screen name="JobDetailScreen" component={JobsDetail} />
+        <Stack.Screen
+          name="JobDetailScreen"
+          component={JobsDetail}
+          options={{
+            headerTitle: 'Implementation Consultant',
+            headerTitleAlign: 'center',
+            headerTintColor: '#FF4D4D',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
