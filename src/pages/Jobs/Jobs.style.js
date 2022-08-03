@@ -10,4 +10,6 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
     padding: 5,
   },
+  button_right: {},
+  button_left: {},
 });

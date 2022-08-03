@@ -1,34 +1,49 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import Jobs from './pages/Jobs';
 import JobsDetail from './pages/JobsDetail';
-const Stack = createNativeStackNavigator();
+import {NavigationContainer} from '@react-navigation/native';
+import FavoriteJobs from './pages/FavoriteJobs/FavoriteJobs';
+import UserProvider from './context/Provider';
+
+const Drawer = createDrawerNavigator();
 
 const Router = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="JobsScreen"
-          component={Jobs}
-          options={{
-            headerTitle: 'Jobs',
+    <UserProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          screenOptions={{
             headerTitleAlign: 'center',
             headerTintColor: '#FF4D4D',
-          }}
-        />
-        <Stack.Screen
-          name="JobDetailScreen"
-          component={JobsDetail}
-          options={{
-            headerTitle: 'Implementation Consultant',
-            headerTitleAlign: 'center',
-            headerTintColor: '#FF4D4D',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+            drawerActiveBackgroundColor: '#FF4D4D',
+            drawerActiveTintColor: 'white',
+          }}>
+          <Drawer.Screen
+            name="JobsScreen"
+            component={Jobs}
+            options={{
+              headerTitle: 'Jobs',
+            }}
+          />
+          <Drawer.Screen
+            name="JobDetailScreen"
+            component={JobsDetail}
+            options={{
+              headerTitle: 'Implementation Consultant',
+              drawerItemStyle: {display: 'none'},
+            }}
+          />
+          <Drawer.Screen
+            name="FavoriteJobs"
+            component={FavoriteJobs}
+            options={{
+              headerTitle: 'Favorite Jobs',
+            }}
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   );
 };
 
